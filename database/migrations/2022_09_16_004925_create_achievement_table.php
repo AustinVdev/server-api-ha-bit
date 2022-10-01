@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tittle', 50);
             $table->string('description');
             $table->boolean('is_active');
-            $table->integer('required_points');
+            $table->integer('required_points')->default(0);
             $table->timestamps();
         });
     }
