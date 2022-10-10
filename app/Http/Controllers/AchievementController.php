@@ -16,7 +16,8 @@ class AchievementController extends Controller
      */
     public function index()
     {
-        //
+        $achievements = Achievement::all();
+        return $achievements;
     }
 
     /**
@@ -36,9 +37,9 @@ class AchievementController extends Controller
      * @param  \App\Models\Achievement  $achievement
      * @return \Illuminate\Http\Response
      */
-    public function show(Achievement $achievement)
+    public function show(Achievement $achievement, $id)
     {
-        //
+        return $achievement->findOrFail($id);
     }
 
     /**

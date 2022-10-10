@@ -16,7 +16,9 @@ class ActivityDifficultyController extends Controller
      */
     public function index()
     {
-        //
+        $activity_difficulties = ActivityDifficulty::all();
+
+        return $activity_difficulties;
     }
 
     /**
