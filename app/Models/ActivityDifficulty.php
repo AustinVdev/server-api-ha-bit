@@ -10,6 +10,13 @@ class ActivityDifficulty extends Model
     use HasFactory;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'activity_difficulty';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>

@@ -13,6 +13,13 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -26,6 +33,7 @@ class User extends Authenticatable
         'password',
         'is_active',
         'is_temp_password',
+        'theme_id',
     ];
 
     /**
