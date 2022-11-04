@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -46,5 +47,23 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * If the exception thrown is a ModelNotFoundException, then return a JSON response with a 404
+     * status code and a message of "Record not found"
+     * 
+     * @param request The incoming request.
+     * @param Throwable e The exception that was thrown.
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException) {
+            return response()->json([
+                'message' => 'Record not found',
+            ], 404);
+
+        }
+
     }
 }
